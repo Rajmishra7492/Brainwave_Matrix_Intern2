@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlogHub - Share Your Stories</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background-color: var(--card-bg);
+            border-radius: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .categories {
+            margin-bottom: 3rem;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .category-card {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            text-align: center;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-card i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .posts-section {
+            margin-bottom: 3rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .post-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .post-card {
+            background-color: var(--card-bg);
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .post-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .post-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .post-content {
+            padding: 1.5rem;
+        }
+
+        .post-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .post-meta {
+            display: flex;
+            gap: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .post-excerpt {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .post-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .post-actions button {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .post-actions button:hover {
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a href="index.html">BlogHub</a>
+        </div>
+        <div class="nav-search">
+            <input type="text" placeholder="Search blogs...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+        <div class="nav-links">
+            <a href="write.html" class="nav-link">Write</a>
+            <a href="#" class="nav-link" id="theme-toggle"><i class="fas fa-moon"></i></a>
+            <a href="login.html" class="nav-link">Sign In</a>
+            <a href="sign.html" class="nav-link btn-primary">Get Started</a>
+        </div>
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Share Your Stories with the World</h1>
+            <p>Join our community of writers and share your thoughts, experiences, and knowledge.</p>
+            <a href="write.html" class="btn-primary">Start Writing</a>
+        </section>
+
+        <section class="categories">
+            <h2>Explore Categories</h2>
+            <div class="category-grid">
+                <div class="category-card" onclick="location.href='category.html?cat=tech'">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Technology</h3>
+                </div>
+                <div class="category-card" onclick="location.href='category.html?cat=travel'">
+                    <i class="fas fa-plane"></i>
+                    <h3>Travel</h3>
+                </div>
+                <div class="category-card" onclick="location.href='category.html?cat=lifestyle'">
+                    <i class="fas fa-heart"></i>
+                    <h3>Lifestyle</h3>
+                </div>
+                <div class="category-card" onclick="location.href='category.html?cat=food'">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Food & Cooking</h3>
+                </div>
+                <div class="category-card" onclick="location.href='category.html?cat=health'">
+                    <i class="fas fa-dumbbell"></i>
+                    <h3>Health & Fitness</h3>
+                </div>
+                <div class="category-card" onclick="location.href='category.html?cat=personal'">
+                    <i class="fas fa-user"></i>
+                    <h3>Personal</h3>
+                </div>
+            </div>
+        </section>
+
+        <section class="posts-section trending">
+            <div class="section-header">
+                <h2>Trending Posts</h2>
+                <a href="trending.html" class="btn-secondary">View All</a>
+            </div>
+            <div class="post-grid">
+                <!-- Trending posts will be loaded here -->
+            </div>
+        </section>
+
+        <section class="posts-section recent">
+            <div class="section-header">
+                <h2>Recent Posts</h2>
+                <a href="recent.html" class="btn-secondary">View All</a>
+            </div>
+            <div class="post-grid">
+                <!-- Recent posts will be loaded here -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>BlogHub</h3>
+                <p>Share your stories with the world</p>
+            </div>
+            <div class="footer-section">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="#">Tech</a></li>
+                    <li><a href="#">Travel</a></li>
+                    <li><a href="#">Student Life</a></li>
+                    <li><a href="#">Recipes</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 BlogHub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 
